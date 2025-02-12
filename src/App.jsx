@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-
+import './App.css'
 
 import PetList from './components/PetList/PetList'
-
+import PetForm from './components/PetForm/PetForm'
 // petService.index, petService.create, etc,
 // each function you define in the petService file
 // will be a method on the petService object
@@ -34,10 +34,25 @@ function App() {
 
   // use case: We want all of the pets when the page loads
 
+  async function createPet(dataFromTheForm){
+    // lift the dataFromTheForm
+    // pass this function to the form component
+    // and call it when the user submits the form
+    try {
+      const newPet = await petService.create(dataFromTheForm)
+      console.log(newPet, ' <- this is our newPet')
+      setPets([...pets, newPet])
+    } catch(err){
+      console.log(err)
+    }
+  }
+
+
   return (
-   <>
+   <div className='App'>
     <PetList pets={pets}/>
-   </> 
+    <PetForm createPet={createPet}/>
+   </div> 
   )
 }
 
