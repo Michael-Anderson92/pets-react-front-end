@@ -26,7 +26,7 @@ function App() {
         // check your work before you do anything else!
         console.log(data, ' <- data')
         // every time you update state, go to your 
-        // dev tools and look at it!
+        // dev tools and look at it!   
         setPets(data)
       } catch (err) {
         console.log(err)
