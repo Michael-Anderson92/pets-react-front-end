@@ -32,7 +32,7 @@ function App() {
         console.log(err)
       }
     }
-
+    // added code
     // calling the function
     fetchPets()
 
